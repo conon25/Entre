@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "id": "91aa6c0a-952d-4d61-820a-b334eb02718b",
+      "created_at": "2026-05-02T09:05:37.339Z",
+      "session_id": "session-001",
+      "session_label": "5월 17일 (일) 18:00",
+      "name": "서용재",
+      "gender": "남자",
+      "phone": "010-2918-4315",
+      "birth_year": "1992",
+      "job": "개발자/현대오토에버",
+      "expectation": "신청하기 테스트1",
+      "status": "대기"
+    },
+    {
+      "id": "5c9a636f-690c-474c-af64-c23dc48df8d9",
+      "created_at": "2026-05-02T09:11:09.492Z",
+      "session_id": "session-001",
+      "session_label": "5월 17일 (일) 18:00",
+      "name": "테스트1",
+      "gender": "여자",
+      "phone": "010-5321-8562",
+      "birth_year": "1996",
+      "job": "개발자/테스트",
+      "expectation": "좋은 사람만 나왔으면 좋겠어요.\n뒷풀이가 있었으면 좋겠어요",
+      "status": "대기"
+    }
+  ]
+}

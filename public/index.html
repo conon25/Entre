@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ENTRE | 앙트르 - 사람과 사람을 잇는 공간</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ====== STICKY NAV ====== -->
+  <nav class="nav" id="main-nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo" aria-label="ENTRE 홈으로">
+        <img src="images/logo.jpg" alt="ENTRE 로고" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="nav__logo-text" style="display:none;">ENTRE</span>
+      </a>
+      <nav class="nav__links">
+        <a href="#program" class="nav__link">프로그램</a>
+        <a href="#pricing" class="nav__link">가격</a>
+        <a href="#schedule" class="nav__link">일정</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+      </nav>
+      <button class="nav__cta-btn" onclick="scrollToApply()">신청하기</button>
+    </div>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <img src="images/bg.png" alt="앙트르 모임 공간" onerror="this.style.display='none'" />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <div class="grand-open-badge">🎉 5월 16일 그랜드 오픈!</div>
+      <span class="hero__tag">20-30대 오프라인 소셜 모임</span>
+      <h1 class="hero__title">사람과 사람을<br /><em>잇는 공간</em></h1>
+      <p class="hero__sub">어색함 없이 자연스럽게 시작되는 만남<br />대화로 가까워지는 오프라인 모임, 앙트르</p>
+      <div class="hero__ctas">
+        <button class="btn btn--primary" onclick="scrollToApply()">다음 모임 신청하기</button>
+        <a href="#schedule" class="btn btn--ghost">모임 일정 보기</a>
+      </div>
+      <div class="hero__badges">
+        <span>⚡ 3분 신청</span>
+        <span>✓ 수수료 없음</span>
+        <span>📩 당일 안내</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PAIN POINTS ====== -->
+  <section class="pain" id="pain">
+    <div class="container">
+      <p class="section-eyebrow">이런 고민, 있으시죠?</p>
+      <h2 class="section-title">괜찮은데<br />기회가 없다</h2>
+      <div class="pain__grid">
+        <div class="pain__card">
+          <span class="pain__num">01</span>
+          <p>소개팅은 부담스럽고<br />기회는 점점 줄어든다</p>
+        </div>
+        <div class="pain__card">
+          <span class="pain__num">02</span>
+          <p>헌팅 · 가벼운 분위기는<br />싫다</p>
+        </div>
+        <div class="pain__card">
+          <span class="pain__num">03</span>
+          <p>혼자 가면<br />어색할까 걱정된다</p>
+        </div>
+      </div>
+      <p class="pain__answer">앙트르는 이 세 가지 고민을 처음부터 설계로 해결합니다.</p>
+    </div>
+  </section>
+
+  <!-- ====== PROGRAM SECTION ====== -->
+  <section class="program" id="program">
+    <div class="container">
+      <p class="section-eyebrow">프로그램</p>
+      <h2 class="section-title">3시간, 설계된 만남</h2>
+      <p class="section-sub">이름도 나이도 묻지 않습니다.<br />오직 대화와 감정으로 연결됩니다.</p>
+
+      <!-- 1부 -->
+      <div class="program__part">
+        <div class="program__part-header">
+          <span class="program__part-num">1부</span>
+          <span class="program__part-time">19:45 ~ 21:00</span>
+          <span class="program__part-title">첫인상 &amp; 탐색</span>
+        </div>
+        <div class="program__timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">19:45 ~ 20:00</div>
+            <div class="timeline-content">
+              <div class="timeline-label">입장 (Check-in)</div>
+              <ul class="timeline-list">
+                <li>참가자 입장 · 와인 및 핑거푸드 제공</li>
+                <li>닉네임 카드 착용</li>
+                <li>테이블 착석 (4인 1조)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">20:00 ~ 20:10</div>
+            <div class="timeline-content">
+              <div class="timeline-label">오프닝 &amp; 진행 안내</div>
+              <ul class="timeline-list">
+                <li>앙트르 컨셉 소개 · 룰 안내</li>
+                <li class="timeline-rule">이름 <span class="no">❌</span> 나이 <span class="no">❌</span> 직업 <span class="no">❌</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">20:10 ~ 20:30</div>
+            <div class="timeline-content">
+              <div class="timeline-label">4인 조 첫인상 토킹</div>
+              <ul class="timeline-list">
+                <li>각 테이블 질문 카드 제공</li>
+                <li>첫인상 기반 대화 진행</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item--hot">
+            <div class="timeline-time">20:30 ~ 20:45</div>
+            <div class="timeline-content">
+              <div class="timeline-label">자유 이동 미션 🔥</div>
+              <ul class="timeline-list">
+                <li>15분 타이머 · 자유 이동 대화</li>
+                <li>최소 3명 이상과 대화</li>
+                <li>"내 첫인상이 어땠는지" 질문 미션</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">20:45 ~ 20:50</div>
+            <div class="timeline-content">
+              <div class="timeline-label">첫인상 카드 작성 💌</div>
+              <ul class="timeline-list">
+                <li>다른 사람 카드에 한 줄 작성</li>
+                <li class="timeline-example">"밝은 에너지" · "차분한 느낌이 좋았어요"</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">20:50 ~ 21:00</div>
+            <div class="timeline-content">
+              <div class="timeline-label">휴식 시간</div>
+              <ul class="timeline-list">
+                <li>자유 이동 · 화장실 · 음료 리필</li>
+                <li>자연스러운 추가 대화 가능</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2부 -->
+      <div class="program__part">
+        <div class="program__part-header">
+          <span class="program__part-num">2부</span>
+          <span class="program__part-time">21:00 ~ 22:00</span>
+          <span class="program__part-title">깊이 있는 대화</span>
+        </div>
+        <div class="program__rotation">
+          <p class="rotation__desc">3라운드 테이블 로테이션 — 20분씩 각기 다른 주제로 대화</p>
+          <div class="rotation__grid">
+            <div class="rotation__card">
+              <div class="rotation__round">1차 (20분)</div>
+              <div class="rotation__name">Deuxième Entre</div>
+              <div class="rotation__theme">취향 테이블</div>
+              <div class="rotation__desc-text">관심사 · 라이프스타일</div>
+            </div>
+            <div class="rotation__card">
+              <div class="rotation__round">2차 (20분)</div>
+              <div class="rotation__name">Connexion Entre</div>
+              <div class="rotation__theme">공감 테이블</div>
+              <div class="rotation__desc-text">연결 · 공감</div>
+            </div>
+            <div class="rotation__card">
+              <div class="rotation__round">3차 (20분)</div>
+              <div class="rotation__name">Émotion Entre</div>
+              <div class="rotation__theme">설렘 테이블</div>
+              <div class="rotation__desc-text">감정 · 설렘</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3부 -->
+      <div class="program__part program__part--highlight">
+        <div class="program__part-header">
+          <span class="program__part-num">3부</span>
+          <span class="program__part-time">22:00 ~ 23:00</span>
+          <span class="program__part-title">선택 &amp; 연결 <span class="fire">🔥</span></span>
+        </div>
+        <div class="program__timeline">
+          <div class="timeline-item timeline-item--hot">
+            <div class="timeline-time">22:00 ~ 22:10</div>
+            <div class="timeline-content">
+              <div class="timeline-label">선택의 시간</div>
+              <ul class="timeline-list">
+                <li>쪽지 3장 지급 · 최대 3명 선택</li>
+                <li><strong>작성 필수:</strong> <span class="timeline-tags">이름 · 나이 · 직업 · 연락처 · 선택 이유</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">22:10 ~ 23:00</div>
+            <div class="timeline-content">
+              <div class="timeline-label">최종 대화 — Route Entre</div>
+              <div class="route-grid">
+                <div class="route-box">
+                  <p class="route-box__title">진행 방식</p>
+                  <ul class="timeline-list">
+                    <li>5분씩 대화</li>
+                    <li>남자 이동</li>
+                    <li>재대화 가능</li>
+                  </ul>
+                </div>
+                <div class="route-box">
+                  <p class="route-box__title">목적</p>
+                  <ul class="timeline-list">
+                    <li>선택 검증</li>
+                    <li>감정 강화</li>
+                    <li>실제 연결</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item--end">
+            <div class="timeline-time">23:00</div>
+            <div class="timeline-content">
+              <div class="timeline-label">종료 🎊</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PRICING ====== -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <p class="section-eyebrow">참가비</p>
+      <h2 class="section-title">오픈 기념<br />얼리버드 혜택</h2>
+      <div class="pricing__drinks">
+        🍷 와인 &nbsp;·&nbsp; 🍽️ 핑거푸드 &nbsp;·&nbsp; 🥤 논알콜 음료 제공
+      </div>
+      <div class="pricing__grid">
+        <div class="pricing__card pricing__card--male">
+          <div class="pricing__gender-tag pricing__gender-tag--male">남자</div>
+          <div class="pricing__early">
+            <span class="pricing__badge">얼리버드 선착순 10명</span>
+            <span class="pricing__price">39,000원</span>
+          </div>
+          <div class="pricing__regular">일반가 <strong>44,000원</strong></div>
+        </div>
+        <div class="pricing__card pricing__card--female">
+          <div class="pricing__gender-tag pricing__gender-tag--female">여자</div>
+          <div class="pricing__early">
+            <span class="pricing__badge pricing__badge--female">얼리버드 선착순 10명</span>
+            <span class="pricing__price">35,000원</span>
+          </div>
+          <div class="pricing__regular">일반가 <strong>39,000원</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TRUST / REVIEWS ====== -->
+  <section class="trust" id="trust">
+    <div class="container">
+      <p class="section-eyebrow">후기</p>
+      <h2 class="section-title">직접 경험한<br />분들의 이야기</h2>
+      <div class="reviews__slider" id="reviews-slider">
+        <div class="review__card active">
+          <p class="review__text">"혼자 와서 오히려 더 편했어요. 대화가 자연스럽게 이어졌고, 생각보다 깊은 대화를 나눴어요."</p>
+          <div class="review__author">20대 후반 · 직장인 여성</div>
+        </div>
+        <div class="review__card">
+          <p class="review__text">"가볍지 않아서 좋았어요. 사람 자체에 집중할 수 있었고, 실제로 연락이 이어졌어요."</p>
+          <div class="review__author">30대 초반 · 직장인 남성</div>
+        </div>
+        <div class="review__card">
+          <p class="review__text">"이름이나 나이 안 물어보는 룰 덕분에 오히려 더 자연스럽게 대화했어요. 신기했어요."</p>
+          <div class="review__author">20대 후반 · 프리랜서</div>
+        </div>
+      </div>
+      <div class="reviews__dots">
+        <button class="dot active" onclick="setReview(0)"></button>
+        <button class="dot" onclick="setReview(1)"></button>
+        <button class="dot" onclick="setReview(2)"></button>
+      </div>
+      <div class="trust__stats">
+        <div class="stat">
+          <span class="stat__num">30~40명</span>
+          <span class="stat__label">평일 참여 인원</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">1:1</span>
+          <span class="stat__label">남녀 성비 균형</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">20~30대</span>
+          <span class="stat__label">메인 연령대</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SCHEDULE ====== -->
+  <section class="schedule" id="schedule">
+    <div class="container">
+      <p class="section-eyebrow">모임 일정</p>
+      <h2 class="section-title">매주 신촌본점에서<br />만납니다</h2>
+
+      <div class="grand-open-banner">
+        <span class="grand-open-banner__icon">🎉</span>
+        <div>
+          <p class="grand-open-banner__date">2026년 5월 16일</p>
+          <p class="grand-open-banner__label">그랜드 오픈 — 정식 운영 시작</p>
+        </div>
+      </div>
+
+      <div class="schedule__table">
+        <div class="schedule__row schedule__row--closed">
+          <div class="schedule__day">월 · 화</div>
+          <div class="schedule__info">휴무</div>
+        </div>
+        <div class="schedule__row">
+          <div class="schedule__day">수요일</div>
+          <div class="schedule__sessions"><div class="session-chip">20:00 ~ 23:00 앙트르</div></div>
+        </div>
+        <div class="schedule__row">
+          <div class="schedule__day">목요일</div>
+          <div class="schedule__sessions"><div class="session-chip">20:00 ~ 23:00 앙트르</div></div>
+        </div>
+        <div class="schedule__row">
+          <div class="schedule__day">금요일</div>
+          <div class="schedule__sessions"><div class="session-chip">20:00 ~ 23:00 앙트르</div></div>
+        </div>
+        <div class="schedule__row">
+          <div class="schedule__day">토요일</div>
+          <div class="schedule__sessions"><div class="session-chip">20:00 ~ 23:00 앙트르</div></div>
+        </div>
+        <div class="schedule__row">
+          <div class="schedule__day">일요일</div>
+          <div class="schedule__sessions"><div class="session-chip">14:00 ~ 17:00 앙트르</div></div>
+        </div>
+      </div>
+
+      <div class="schedule__location">
+        <span class="location__icon">📍</span>
+        <span>신촌본점 단독 운영</span>
+      </div>
+
+      <div class="schedule__cta">
+        <button class="btn btn--primary btn--lg" onclick="scrollToApply()">지금 바로 참여하기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FAQ ====== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <p class="section-eyebrow">FAQ</p>
+      <h2 class="section-title">궁금한 점<br />미리 해결하세요</h2>
+      <div class="faq__list">
+        <div class="faq__item open">
+          <button class="faq__q" onclick="toggleFaq(this)">
+            혼자 가도 괜찮을까요?
+            <span class="faq__arrow">＋</span>
+          </button>
+          <div class="faq__a">
+            <p>대부분 혼자 오세요. 오히려 혼자 오시는 분들이 더 자연스럽게 대화에 집중하신다는 후기가 많아요. 처음부터 대화가 시작되도록 진행됩니다.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" onclick="toggleFaq(this)">
+            나이대와 성비는 어떻게 되나요?
+            <span class="faq__arrow">＋</span>
+          </button>
+          <div class="faq__a">
+            <p>주로 20대 후반 ~ 30대 초반 분들이 참여하세요. 성비는 매 회차 최대한 1:1로 맞추어 운영합니다.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" onclick="toggleFaq(this)">
+            술을 잘 마셔야 하나요?
+            <span class="faq__arrow">＋</span>
+          </button>
+          <div class="faq__a">
+            <p>전혀 아닙니다. 와인과 핑거푸드가 제공되며 논알콜 음료도 함께 준비되어 있어요. 강요는 없고, 앙트르는 술이 아닌 대화가 중심인 공간입니다.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" onclick="toggleFaq(this)">
+            몇 명 정도 참여하나요?
+            <span class="faq__arrow">＋</span>
+          </button>
+          <div class="faq__a">
+            <p>평일에는 30~40명, 주말에는 더 많은 인원이 참여합니다. 너무 적지도, 너무 많지도 않은 적정 규모를 유지합니다.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" onclick="toggleFaq(this)">
+            소개팅이나 헌팅 포차 같은 분위기인가요?
+            <span class="faq__arrow">＋</span>
+          </button>
+          <div class="faq__a">
+            <p>전혀 다릅니다. 앙트르는 가볍지 않아요. 이름, 나이, 직업을 묻지 않는 룰로 시작해, 오직 대화와 감정으로만 연결되는 공간입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== APPLY / CTA ====== -->
+  <section class="apply" id="apply">
+    <div class="container">
+      <p class="section-eyebrow">신청</p>
+      <h2 class="section-title apply__title">자리가 얼마<br />남지 않았습니다</h2>
+      <p class="apply__sub">3분이면 충분합니다. 수수료 없이 바로 신청하세요.</p>
+      <form class="apply__form" id="apply-form">
+
+        <!-- 1. 이름 -->
+        <div class="form-group">
+          <label for="name">이름 <span class="req">*</span></label>
+          <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required />
+        </div>
+
+        <!-- 2. 성별 -->
+        <div class="form-group">
+          <label>성별 <span class="req">*</span></label>
+          <div class="gender-btns">
+            <button type="button" class="gender-btn" data-val="남자" onclick="selectGender(this)">남자</button>
+            <button type="button" class="gender-btn" data-val="여자" onclick="selectGender(this)">여자</button>
+          </div>
+          <input type="hidden" id="gender" name="gender" />
+        </div>
+
+        <!-- 3. 연락처 -->
+        <div class="form-group">
+          <label for="phone">연락처 <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required />
+        </div>
+
+        <!-- 4. 출생연도 -->
+        <div class="form-group">
+          <label for="birth-year">출생연도 <span class="req">*</span></label>
+          <input type="number" id="birth-year" name="birth_year"
+            placeholder="1999" min="1950" max="2007"
+            inputmode="numeric" maxlength="4" required />
+          <p id="birth-year-error" class="field-error" style="display:none;"></p>
+        </div>
+
+        <!-- 5. 직업/소속 -->
+        <div class="form-group">
+          <label for="job">직업/소속 <span class="req">*</span></label>
+          <input type="text" id="job" name="job" placeholder="학생, 사업가, 선생님..." required />
+        </div>
+
+        <!-- 6. 희망 일정 -->
+        <div class="form-group">
+          <label for="date">희망 일정 <span class="req">*</span></label>
+          <select id="date" name="date" required>
+            <option value="">불러오는 중...</option>
+          </select>
+          <div class="seat-status" id="seat-status" style="display:none;"></div>
+        </div>
+
+        <!-- 7. 모임에서 기대하는 점 -->
+        <div class="form-group">
+          <label for="expectation">모임에서 기대하는 점 <span class="req">*</span></label>
+          <textarea id="expectation" name="expectation" rows="4"
+            placeholder="최대 1000자까지 입력 가능합니다." maxlength="1000" required
+            oninput="updateCharCount(this)"></textarea>
+          <p class="char-count"><span id="char-count">0</span> / 1000자</p>
+        </div>
+
+        <!-- 8. 사진 업로드 -->
+        <div class="form-group">
+          <label>프로필 사진 <span class="req">*</span></label>
+          <label class="photo-upload" id="photo-upload-label" for="photo">
+            <input type="file" id="photo" name="photo"
+              accept="image/jpeg,image/jpg,image/png,image/webp,image/heic"
+              hidden onchange="previewPhoto(this)" />
+            <div class="photo-upload__placeholder" id="photo-placeholder">
+              <div class="photo-upload__icon">＋</div>
+              <p class="photo-upload__text">사진을 선택하거나<br />여기에 끌어다 놓으세요</p>
+              <p class="photo-upload__hint">JPG · PNG · WebP · HEIC · 최대 5MB</p>
+            </div>
+            <div class="photo-upload__preview" id="photo-preview" style="display:none;">
+              <img id="photo-preview-img" src="" alt="미리보기" />
+              <button type="button" class="photo-upload__remove" onclick="removePhoto(event)">✕</button>
+            </div>
+          </label>
+          <p id="photo-size-info" style="font-size:11px;color:var(--gray-400);margin-top:6px;"></p>
+        </div>
+
+        <!-- 9. 개인정보 동의 -->
+        <p class="privacy-notice">
+          신청하기를 누르면 <span class="privacy-notice__link" onclick="openPrivacyModal()">개인정보 수집·이용</span>에 동의한 것으로 간주됩니다.
+        </p>
+
+        <!-- 예상 결제 금액 -->
+        <div class="price-box">
+          <span class="price-box__label">예상 결제 금액</span>
+          <span class="price-box__amount">30,000원</span>
+        </div>
+
+        <div id="apply-error" style="display:none;color:#e05555;font-size:13px;padding:10px 14px;background:rgba(224,85,85,0.1);border:1px solid rgba(224,85,85,0.25);border-radius:4px;margin-bottom:12px;white-space:pre-line;line-height:1.7;font-weight:500;"></div>
+        <button type="button" class="btn btn--primary btn--full btn--lg" id="submit-btn">신청하기</button>
+        <p class="form__privacy">연락처 및 사진은 모임 참가 심사 외 용도로 사용하지 않습니다.</p>
+      </form>
+      <div class="apply__success" id="apply-success" style="display:none;">
+        <div class="success__icon">✓</div>
+        <h3>신청이 완료되었습니다!</h3>
+        <p>빠른 시일 내에 확인 연락 드리겠습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 개인정보 수집 모달 -->
+  <div class="privacy-modal-overlay" id="privacy-modal" onclick="closePrivacyModal(event)">
+    <div class="privacy-modal">
+      <button class="privacy-modal__close" onclick="closePrivacyModalDirect()">✕</button>
+      <h3 class="privacy-modal__title">개인정보 수집 및 이용 동의</h3>
+      <table class="privacy-table">
+        <tr><th>수집 항목</th><td>이름, 성별, 연락처, 출생연도, 직업/소속, 사진</td></tr>
+        <tr><th>수집 목적</th><td>모임 참가 신청 접수 및 운영</td></tr>
+        <tr><th>보유 기간</th><td>모임 종료 후 30일 이내 파기</td></tr>
+      </table>
+      <p class="privacy-modal__note">동의를 거부할 수 있으나, 거부 시 모임 신청이 제한됩니다.</p>
+      <button class="privacy-modal__confirm" onclick="closePrivacyModalDirect()">확인</button>
+    </div>
+  </div>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__logo">
+        <img src="images/logo.jpg" alt="ENTRE 로고" class="footer__logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span style="display:none;font-size:20px;font-weight:900;letter-spacing:0.1em;color:var(--accent);">ENTRE</span>
+      </div>
+      <p class="footer__tagline">사람과 사람을 잇는 공간</p>
+      <p class="footer__info">📍 신촌본점 &nbsp;|&nbsp; 수~일 운영 &nbsp;|&nbsp; 월·화 휴무</p>
+      <p class="footer__copy">© 2026 ENTRE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ====== STICKY BOTTOM CTA ====== -->
+  <div class="sticky-cta" id="sticky-cta">
+    <button class="btn btn--primary btn--full" onclick="scrollToApply()">모임 신청하기</button>
+  </div>
+
+  <!-- 인앱 브라우저 감지 -->
+  <div id="inapp-guide" style="display:none;position:fixed;top:0;left:0;right:0;z-index:9999;background:#111;border-bottom:2px solid #c9a063;padding:18px 20px;text-align:center;color:#fff;font-family:'Noto Sans KR',sans-serif;">
+    <p style="margin:0 0 6px;font-size:14px;font-weight:700;">⚠️ 이 브라우저에서는 신청이 안 될 수 있습니다</p>
+    <p style="margin:0 0 14px;font-size:12px;color:#aaa;line-height:1.5;">Chrome 또는 Safari에서 열어주세요.</p>
+    <button id="inapp-copy-btn" style="background:#c9a063;color:#000;border:none;padding:10px 28px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;">🔗 URL 복사하기</button>
+    <button id="inapp-close-btn" style="background:transparent;color:#666;border:1px solid #333;padding:10px 16px;border-radius:8px;font-size:12px;cursor:pointer;margin-left:8px;">닫기</button>
+  </div>
+  <script>
+  (function() {
+    var ua = navigator.userAgent || '';
+    if (!/KAKAOTALK|NAVER|Line\/|Instagram|FBAN|FBAV|Twitter|Snapchat/i.test(ua)) return;
+    var banner = document.getElementById('inapp-guide');
+    if (!banner) return;
+    banner.style.display = 'block';
+    document.getElementById('inapp-copy-btn').onclick = function() {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(location.href).then(function() {
+          alert('URL이 복사되었습니다!\nChrome 또는 Safari에서 붙여넣기 해주세요.');
+        });
+      } else {
+        prompt('아래 URL을 복사해주세요:', location.href);
+      }
+    };
+    document.getElementById('inapp-close-btn').onclick = function() { banner.style.display = 'none'; };
+    if (/android/i.test(ua)) {
+      location.href = 'intent://' + location.href.replace(/^https?:\/\//, '') +
+        '#Intent;scheme=https;package=com.android.chrome;end';
+    }
+  })();
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

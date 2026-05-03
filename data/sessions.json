@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "id": "session-001",
+      "created_at": "2026-01-01T00:00:00.000Z",
+      "date_iso": "2026-05-17",
+      "date_label": "5월 17일 (일)",
+      "time_slot": "18:00",
+      "male_capacity": 8,
+      "female_capacity": 8,
+      "is_active": true,
+      "is_closed": false
+    },
+    {
+      "id": "session-002",
+      "created_at": "2026-01-01T00:00:00.000Z",
+      "date_iso": "2026-05-24",
+      "date_label": "5월 24일 (일)",
+      "time_slot": "18:00",
+      "male_capacity": 8,
+      "female_capacity": 8,
+      "is_active": true,
+      "is_closed": false
+    },
+    {
+      "id": "session-003",
+      "created_at": "2026-01-01T00:00:00.000Z",
+      "date_iso": "2026-06-07",
+      "date_label": "6월 7일 (일)",
+      "time_slot": "18:00",
+      "male_capacity": 8,
+      "female_capacity": 8,
+      "is_active": true,
+      "is_closed": false
+    }
+  ]
+}
