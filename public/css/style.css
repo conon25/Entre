@@ -761,6 +761,31 @@ ul { list-style: none; }
 }
 
 .location__icon { font-size: 16px; }
+
+.naver-map-embed {
+  margin-bottom: 32px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.naver-map-embed iframe {
+  display: block;
+  width: 100%;
+  height: 320px;
+  border: none;
+}
+.naver-map-link {
+  display: block;
+  padding: 10px 16px;
+  background: #03C75A;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  transition: opacity var(--transition);
+}
+.naver-map-link:hover { opacity: 0.85; }
+
 .schedule__cta { text-align: center; }
 
 /* =============================================

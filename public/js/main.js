@@ -157,9 +157,9 @@ function updatePriceBox(gender) {
   const amountEl = document.querySelector('.price-box__amount');
   if (!amountEl) return;
   if (gender === '남자') {
-    amountEl.innerHTML = '39,000원 <span style="font-size:12px;font-weight:500;color:var(--gray-400);">얼리버드</span>';
+    amountEl.innerHTML = '43,000원 <span style="font-size:12px;font-weight:500;color:var(--gray-400);">얼리버드</span>';
   } else if (gender === '여자') {
-    amountEl.innerHTML = '35,000원 <span style="font-size:12px;font-weight:500;color:var(--gray-400);">얼리버드</span>';
+    amountEl.innerHTML = '39,000원 <span style="font-size:12px;font-weight:500;color:var(--gray-400);">얼리버드</span>';
   }
 }
 

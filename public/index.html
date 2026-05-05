@@ -43,11 +43,6 @@
         <button class="btn btn--primary" onclick="scrollToApply()">다음 모임 신청하기</button>
         <a href="#schedule" class="btn btn--ghost">모임 일정 보기</a>
       </div>
-      <div class="hero__badges">
-        <span>⚡ 3분 신청</span>
-        <span>✓ 수수료 없음</span>
-        <span>📩 당일 안내</span>
-      </div>
     </div>
   </section>
 
@@ -252,17 +247,17 @@
           <div class="pricing__gender-tag pricing__gender-tag--male">남자</div>
           <div class="pricing__early">
             <span class="pricing__badge">얼리버드 선착순 10명</span>
-            <span class="pricing__price">39,000원</span>
+            <span class="pricing__price">43,000원</span>
           </div>
-          <div class="pricing__regular">일반가 <strong>44,000원</strong></div>
+          <div class="pricing__regular">정상가 <strong>48,000원</strong></div>
         </div>
         <div class="pricing__card pricing__card--female">
           <div class="pricing__gender-tag pricing__gender-tag--female">여자</div>
           <div class="pricing__early">
             <span class="pricing__badge pricing__badge--female">얼리버드 선착순 10명</span>
-            <span class="pricing__price">35,000원</span>
+            <span class="pricing__price">39,000원</span>
           </div>
-          <div class="pricing__regular">일반가 <strong>39,000원</strong></div>
+          <div class="pricing__regular">정상가 <strong>44,000원</strong></div>
         </div>
       </div>
     </div>
@@ -324,9 +319,13 @@
       </div>
 
       <div class="schedule__table">
-        <div class="schedule__row schedule__row--closed">
-          <div class="schedule__day">월 · 화</div>
-          <div class="schedule__info">휴무</div>
+        <div class="schedule__row">
+          <div class="schedule__day">월요일</div>
+          <div class="schedule__sessions"><div class="session-chip">20:00 ~ 23:00 앙트르</div></div>
+        </div>
+        <div class="schedule__row">
+          <div class="schedule__day">화요일</div>
+          <div class="schedule__sessions"><div class="session-chip">20:00 ~ 23:00 앙트르</div></div>
         </div>
         <div class="schedule__row">
           <div class="schedule__day">수요일</div>
@@ -342,17 +341,37 @@
         </div>
         <div class="schedule__row">
           <div class="schedule__day">토요일</div>
-          <div class="schedule__sessions"><div class="session-chip">20:00 ~ 23:00 앙트르</div></div>
+          <div class="schedule__sessions">
+            <div class="session-chip">14:00 ~ 17:00 앙트르</div>
+            <div class="session-chip">20:00 ~ 23:00 앙트르</div>
+          </div>
         </div>
         <div class="schedule__row">
           <div class="schedule__day">일요일</div>
-          <div class="schedule__sessions"><div class="session-chip">14:00 ~ 17:00 앙트르</div></div>
+          <div class="schedule__sessions">
+            <div class="session-chip">14:00 ~ 17:00 앙트르</div>
+            <div class="session-chip">20:00 ~ 23:00 앙트르</div>
+          </div>
         </div>
       </div>
 
       <div class="schedule__location">
         <span class="location__icon">📍</span>
         <span>신촌본점 단독 운영</span>
+      </div>
+
+      <div class="naver-map-embed">
+        <iframe
+          src="https://map.naver.com/p/entry/address/14136513,4521490,%EC%8B%A0%EC%B4%8C%EB%A1%9C39?c=16.00,0,0,0,dh"
+          width="100%"
+          height="320"
+          frameborder="0"
+          allowfullscreen
+          title="앙트르 신촌본점 위치"
+        ></iframe>
+        <a class="naver-map-link" href="https://map.naver.com/p/entry/address/14136513,4521490,%EC%8B%A0%EC%B4%8C%EB%A1%9C39?c=16.00,0,0,0,dh" target="_blank" rel="noopener">
+          네이버 지도에서 크게 보기 →
+        </a>
       </div>
 
       <div class="schedule__cta">
@@ -421,7 +440,7 @@
     <div class="container">
       <p class="section-eyebrow">신청</p>
       <h2 class="section-title apply__title">자리가 얼마<br />남지 않았습니다</h2>
-      <p class="apply__sub">3분이면 충분합니다. 수수료 없이 바로 신청하세요.</p>
+      <p class="apply__sub">지금 바로 신청하세요.</p>
       <form class="apply__form" id="apply-form">
 
         <!-- 1. 이름 -->
@@ -507,7 +526,7 @@
         <!-- 예상 결제 금액 -->
         <div class="price-box">
           <span class="price-box__label">예상 결제 금액</span>
-          <span class="price-box__amount">30,000원</span>
+          <span class="price-box__amount">성별을 선택하세요</span>
         </div>
 
         <div id="apply-error" style="display:none;color:#e05555;font-size:13px;padding:10px 14px;background:rgba(224,85,85,0.1);border:1px solid rgba(224,85,85,0.25);border-radius:4px;margin-bottom:12px;white-space:pre-line;line-height:1.7;font-weight:500;"></div>
@@ -546,7 +565,7 @@
         <span style="display:none;font-size:20px;font-weight:900;letter-spacing:0.1em;color:var(--accent);">ENTRE</span>
       </div>
       <p class="footer__tagline">사람과 사람을 잇는 공간</p>
-      <p class="footer__info">📍 신촌본점 &nbsp;|&nbsp; 수~일 운영 &nbsp;|&nbsp; 월·화 휴무</p>
+      <p class="footer__info">📍 신촌본점 &nbsp;|&nbsp; 매일 운영</p>
       <p class="footer__copy">© 2026 ENTRE. All rights reserved.</p>
     </div>
   </footer>
