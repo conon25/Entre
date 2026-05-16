@@ -1,0 +1,13 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /
+
+# data 폴더 직접 접근 차단
+RewriteRule ^data(/.*)?$ - [F,L]
+
+# /tables/* 요청을 api.php로 라우팅
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^tables/(.+)$ api.php [QSA,L]
+
+DirectoryIndex index.html

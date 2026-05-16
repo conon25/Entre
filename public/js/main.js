@@ -99,48 +99,12 @@ async function loadSeatStatus(sel, seatStatus) {
   const opt = sel.options[sel.selectedIndex];
   if (!opt || !opt.value) { seatStatus.style.display = 'none'; return; }
 
-  const sessionId  = opt.value;
-  const maleCap    = parseInt(opt.dataset.maleCap)   || 20;
-  const femaleCap  = parseInt(opt.dataset.femaleCap) || 20;
-
   seatStatus.style.display = 'block';
-  seatStatus.innerHTML = `<span class="seat-badge" style="color:var(--gray-400);">잔여석 확인 중...</span>`;
-
-  try {
-    const res  = await fetch('tables/applications?limit=500');
-    const data = await res.json();
-    const apps = (data.data || []).filter(a => a.session_id === sessionId && a.status !== '취소');
-
-    const maleCnt    = apps.filter(a => a.gender === '남자').length;
-    const femaleCnt  = apps.filter(a => a.gender === '여자').length;
-    const maleLeft   = Math.max(0, maleCap   - maleCnt);
-    const femaleLeft = Math.max(0, femaleCap - femaleCnt);
-
-    const maleClass   = maleLeft   <= 3 ? 'seat-badge--urgent' : 'seat-badge--male';
-    const femaleClass = femaleLeft <= 3 ? 'seat-badge--urgent' : 'seat-badge--female';
-
-    seatStatus.innerHTML = `
-      <div class="seat-status__bar">
-        <span class="seat-badge ${maleClass}">${maleLeft === 0 ? '남자 마감' : '남자 잔여 ' + maleLeft + '석'}</span>
-        <span class="seat-badge ${femaleClass}">${femaleLeft === 0 ? '여자 마감' : '여자 잔여 ' + femaleLeft + '석'}</span>
-      </div>
-      <div class="seat-progress">
-        <div class="seat-progress__item">
-          <div class="seat-progress__label"><span>남자</span><span>${maleCnt} / ${maleCap}명</span></div>
-          <div class="seat-progress__bar"><div class="seat-progress__fill seat-progress__fill--male" style="width:${Math.min(100, maleCnt/maleCap*100)}%"></div></div>
-        </div>
-        <div class="seat-progress__item">
-          <div class="seat-progress__label"><span>여자</span><span>${femaleCnt} / ${femaleCap}명</span></div>
-          <div class="seat-progress__bar"><div class="seat-progress__fill seat-progress__fill--female" style="width:${Math.min(100, femaleCnt/femaleCap*100)}%"></div></div>
-        </div>
-      </div>
-      ${(maleLeft <= 3 && maleLeft > 0) || (femaleLeft <= 3 && femaleLeft > 0)
-        ? '<p class="seat-status__warn">마감 임박! 서둘러 신청하세요.</p>' : ''}
-    `;
-  } catch (err) {
-    console.error('[ENTRE] 잔여석 정보 불러오기 실패:', err);
-    seatStatus.innerHTML = `<span class="seat-badge" style="color:#e57373;">⚠️ 잔여석 정보를 불러올 수 없습니다</span>`;
-  }
+  seatStatus.innerHTML = `
+    <div class="seat-status__bar">
+      <span class="seat-badge seat-badge--open">● 모집 중</span>
+    </div>
+  `;
 }
 
 /* ==============================================
@@ -361,14 +325,14 @@ async function handleApply(event) {
     /* ① 기본 정보 저장 */
     const r1 = await fetch('tables/applications', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: '_json=' + encodeURIComponent(JSON.stringify({
         session_id: sessionId, session_label: sessionLabel,
         name, gender, phone,
         birth_year: String(birthYear),
         job, expectation,
         status: '대기',
-      }),
+      })),
     });
     if (!r1.ok) throw new Error('신청 저장 실패 (HTTP ' + r1.status + ')');
     const app   = await r1.json();
@@ -382,8 +346,8 @@ async function handleApply(event) {
 
     const r2 = await fetch('tables/photos', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ application_id: appId, photo_data: b64 }),
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: '_json=' + encodeURIComponent(JSON.stringify({ application_id: appId, photo_data: b64 })),
     });
     if (!r2.ok) throw new Error('사진 저장 실패 (HTTP ' + r2.status + ')');
     const saved = await r2.json();

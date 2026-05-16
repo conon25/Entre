@@ -108,6 +108,6 @@ app.post('/tables/photos', (req, res) => {
 });
 
 /* ── 시작 ── */
-app.listen(PORT, () => {
-  console.log(`\n🚀 ENTRE 서버 실행 중: http://localhost:${PORT}\n`);
-});
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`\n🚀 ENTRE 서버 실행 중: 포트 ${PORT}에서 모든 IP 접속 허용 (0.0.0.0)\n`);
+  });

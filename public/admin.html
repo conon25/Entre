@@ -644,9 +644,19 @@ function initAdmin() {
    API 헬퍼
 ══════════════════════════════════════════ */
 async function apiFetch(path, method='GET', body=null) {
-  const opts = { method, headers: { 'Content-Type': 'application/json' } };
-  if (body) opts.body = JSON.stringify(body);
-  const res = await fetch(path, opts);
+  if (method === 'GET') {
+    const res = await fetch(path);
+    return res.json();
+  }
+  // 가비아 Apache가 application/json 을 차단하므로 form-urlencoded 로 우회
+  const parts = [];
+  if (body) parts.push('_json=' + encodeURIComponent(JSON.stringify(body)));
+  if (method !== 'POST') parts.push('_method=' + method);
+  const res = await fetch(path, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: parts.join('&')
+  });
   if (method === 'DELETE') return null;
   return res.json();
 }
