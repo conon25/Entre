@@ -166,12 +166,18 @@ function updateCharCount(textarea) {
    사진 미리보기 / 삭제 / 드래그앤드롭
 ============================================== */
 function validatePhoto(file) {
-  const ok = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/heic'];
-  if (!ok.includes(file.type.toLowerCase()) && !file.name.toLowerCase().endsWith('.heic')) {
+  const ok = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/heic', 'image/heif'];
+  const name = (file.name || '').toLowerCase();
+  const isHeic = name.endsWith('.heic') || name.endsWith('.heif');
+  if (!ok.includes((file.type || '').toLowerCase()) && !isHeic && !name.match(/\.(jpe?g|png|webp)$/)) {
     alert('JPG, PNG, WebP, HEIC 파일만 가능합니다.'); return false;
   }
   if (file.size > 5 * 1024 * 1024) {
     alert('파일 크기는 5MB 이하만 가능합니다.'); return false;
+  }
+  // 인앱 브라우저에서 HEIC 안내 (디코딩 실패할 수 있음)
+  if (isHeic && /KAKAOTALK|NAVER|Line\/|Instagram|FBAN|FBAV/i.test(navigator.userAgent || '')) {
+    console.warn('[ENTRE] 인앱 브라우저에서 HEIC 파일 — 디코딩 실패 가능');
   }
   return true;
 }
@@ -233,31 +239,79 @@ if (photoLabel) {
 ============================================== */
 function compressPhoto(file) {
   return new Promise((resolve, reject) => {
+    const name = (file.name || '').toLowerCase();
+    const isHeic = name.endsWith('.heic') || name.endsWith('.heif') ||
+                   /heic|heif/i.test(file.type || '');
+    const isInApp = /KAKAOTALK|NAVER|Line\/|Instagram|FBAN|FBAV/i.test(navigator.userAgent || '');
+
+    // 인앱 브라우저 hang 대비 타임아웃 (30초)
+    let done = false;
+    const timeoutId = setTimeout(() => {
+      if (done) return;
+      done = true;
+      reject(new Error('사진 처리 시간이 초과되었습니다. 더 작은 사진으로 시도해 주세요.'));
+    }, 30000);
+
+    const finish = (fn) => (...args) => {
+      if (done) return;
+      done = true;
+      clearTimeout(timeoutId);
+      fn(...args);
+    };
+    const ok  = finish(resolve);
+    const err = finish(reject);
+
     const reader = new FileReader();
-    reader.onerror = () => reject(new Error('파일 읽기 실패'));
+    reader.onerror = () => err(new Error('사진 파일을 읽을 수 없습니다. 다른 사진으로 시도해 주세요.'));
     reader.onload  = e => {
-      const img   = new Image();
-      img.onerror = () => reject(new Error('이미지 로딩 실패'));
-      img.onload  = () => {
-        function compress(maxPx, quality) {
-          let w = img.width, h = img.height;
-          if (w > h && w > maxPx) { h = Math.round(h * maxPx / w); w = maxPx; }
-          else if (h >= w && h > maxPx) { w = Math.round(w * maxPx / h); h = maxPx; }
-          const c = document.createElement('canvas');
-          c.width = w; c.height = h;
-          c.getContext('2d').drawImage(img, 0, 0, w, h);
-          return c.toDataURL('image/jpeg', quality);
+      const img = new Image();
+      img.onerror = () => {
+        if (isHeic) {
+          err(new Error('HEIC 사진은 이 브라우저에서 열 수 없습니다. 갤러리에서 JPG로 변환하거나 Chrome/Safari에서 시도해 주세요.'));
+        } else if (isInApp) {
+          err(new Error('인앱 브라우저에서 사진을 불러오지 못했습니다. Chrome 또는 Safari에서 시도해 주세요.'));
+        } else {
+          err(new Error('사진을 불러올 수 없습니다. 다른 사진으로 시도해 주세요.'));
         }
-        let b64 = compress(500, 0.75);
-        if (b64.length > 90000) b64 = compress(400, 0.60);
-        if (b64.length > 90000) b64 = compress(320, 0.50);
-        if (b64.length > 90000) b64 = compress(240, 0.42);
-        if (b64.length > 90000) b64 = compress(180, 0.38);
-        resolve(b64);
+      };
+      img.onload = () => {
+        try {
+          const compress = (maxPx, quality) => {
+            let w = img.width || 0, h = img.height || 0;
+            if (!w || !h) throw new Error('이미지 크기를 읽을 수 없습니다');
+            if (w > h && w > maxPx) { h = Math.round(h * maxPx / w); w = maxPx; }
+            else if (h >= w && h > maxPx) { w = Math.round(w * maxPx / h); h = maxPx; }
+            const c = document.createElement('canvas');
+            c.width = w; c.height = h;
+            const ctx = c.getContext('2d');
+            if (!ctx) throw new Error('Canvas 컨텍스트 생성 실패');
+            // 투명 PNG → 흰 배경 합성 (JPG는 알파를 검정으로 표현하는 문제 방지)
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, w, h);
+            ctx.drawImage(img, 0, 0, w, h);
+            return c.toDataURL('image/jpeg', quality);
+          };
+          let b64 = compress(500, 0.75);
+          if (b64.length > 90000) b64 = compress(400, 0.60);
+          if (b64.length > 90000) b64 = compress(320, 0.50);
+          if (b64.length > 90000) b64 = compress(240, 0.42);
+          if (b64.length > 90000) b64 = compress(180, 0.35);
+          if (!b64 || b64.length < 1000 || !b64.startsWith('data:image')) {
+            err(new Error('사진 압축에 실패했습니다. 다른 사진으로 시도해 주세요.'));
+            return;
+          }
+          ok(b64);
+        } catch (ex) {
+          err(new Error('사진 처리 중 오류: ' + (ex && ex.message ? ex.message : ex)));
+        }
       };
       img.src = e.target.result;
     };
-    reader.readAsDataURL(file);
+    try {
+      reader.readAsDataURL(file);
+    } catch (ex) {
+      err(new Error('파일 읽기 시작 실패: ' + (ex && ex.message ? ex.message : ex)));
+    }
   });
 }
 
