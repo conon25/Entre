@@ -768,11 +768,14 @@ ul { list-style: none; }
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.1);
 }
-.naver-map-embed iframe {
+.naver-map-iframe {
   display: block;
   width: 100%;
   height: 320px;
   border: none;
+}
+.naver-map-mobile {
+  display: none;
 }
 .naver-map-link {
   display: block;
@@ -785,6 +788,50 @@ ul { list-style: none; }
   transition: opacity var(--transition);
 }
 .naver-map-link:hover { opacity: 0.85; }
+
+/* 모바일: iframe 숨기고 대체 카드 표시 */
+@media (max-width: 768px) {
+  .naver-map-iframe { display: none; }
+  .naver-map-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 36px 24px;
+    background: var(--gray-900);
+    text-align: center;
+  }
+  .naver-map-mobile__pin {
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .naver-map-mobile__name {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--white);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .naver-map-mobile__addr {
+    font-size: 14px;
+    color: var(--gray-200);
+    margin: 0;
+    line-height: 1.65;
+  }
+  .naver-map-mobile__btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 28px;
+    background: #03C75A;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+  }
+}
 
 .schedule__cta { text-align: center; }
 
