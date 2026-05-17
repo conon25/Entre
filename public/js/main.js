@@ -344,6 +344,13 @@ async function handleApply(event) {
   if (!form || !btn) { console.error('[ENTRE] 폼 또는 버튼 요소를 찾을 수 없음'); return; }
   if (btn.disabled) { console.log('[ENTRE] 이미 처리 중 — 중복 클릭 무시'); return; }
 
+  // 인앱 브라우저 최초 신청 시 경고 토스트 표시 (한 번만)
+  if (window.__isInApp && !window.__inAppWarned) {
+    if (window.__showInAppBanner) window.__showInAppBanner();
+    window.__inAppWarned = true;
+    return;
+  }
+
   errEl.style.display = 'none';
 
   const name        = document.getElementById('name').value.trim();

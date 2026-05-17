@@ -356,7 +356,7 @@
         <div class="naver-map-mobile">
           <div class="naver-map-mobile__pin">📍</div>
           <p class="naver-map-mobile__name">앙트르 신촌본점</p>
-          <p class="naver-map-mobile__addr">서울 서대문구 신촌로 39<br>연이빌딩 지하 1층</p>
+          <p class="naver-map-mobile__addr">서대문구 신촌로 39<br>연이빌딩 지하 1층</p>
           <a class="naver-map-mobile__btn"
              href="https://map.naver.com/p/entry/address/14136513,4521490,%EC%8B%A0%EC%B4%8C%EB%A1%9C39?c=16.00,0,0,0,dh"
              target="_blank" rel="noopener">
@@ -642,16 +642,21 @@
     </div>
   </div>
   <script>
+  // 인앱 브라우저 감지만 하고 전역 플래그로 저장 — 표시는 신청하기 클릭 시에만
+  window.__isInApp = /KAKAOTALK|NAVER|Line\/|Instagram|FBAN|FBAV|Twitter|Snapchat/i.test(navigator.userAgent || '');
+
   (function() {
-    var ua = navigator.userAgent || '';
-    if (!/KAKAOTALK|NAVER|Line\/|Instagram|FBAN|FBAV|Twitter|Snapchat/i.test(ua)) return;
     var banner = document.getElementById('inapp-guide');
     if (!banner) return;
 
-    // 이미 한 번 닫았으면 다시 띄우지 않음 (세션 유지)
-    try { if (sessionStorage.getItem('inapp_dismissed') === '1') return; } catch (e) {}
+    function showInAppBanner() {
+      banner.style.display = 'block';
+    }
+    function hideInAppBanner() {
+      banner.style.display = 'none';
+    }
 
-    banner.style.display = 'block';
+    // URL 복사 버튼
     document.getElementById('inapp-copy-btn').onclick = function() {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(location.href).then(function() {
@@ -661,10 +666,15 @@
         prompt('아래 URL을 복사하세요:', location.href);
       }
     };
+
+    // 닫기 버튼 → 배너 숨기고 신청 계속 진행 허용
     document.getElementById('inapp-close-btn').onclick = function() {
-      banner.style.display = 'none';
-      try { sessionStorage.setItem('inapp_dismissed', '1'); } catch (e) {}
+      hideInAppBanner();
+      window.__inAppWarned = true; // 다음 클릭은 바로 진행
     };
+
+    // 신청하기 버튼 클릭 시 인앱 경고 표시 (main.js 로드 전 대비 DOMContentLoaded 이후)
+    window.__showInAppBanner = showInAppBanner;
   })();
   </script>
 
