@@ -1124,14 +1124,14 @@ ul { list-style: none; }
 .footer__info { font-size: 13px; font-weight: 500; color: var(--gray-300); margin-bottom: 16px; }
 .footer__copy { font-size: 12px; color: var(--gray-500); }
 
-/* ── 회사 정보 (디스클로저 / 공식 문서 톤) ── */
+/* ── 회사 정보 (다크 디스클로저 / 모노크롬) ── */
 .footer__business {
   max-width: 880px;
   margin: 40px auto 24px;
   padding: 0;
-  background: #ffffff;
-  color: #111111;
-  border: 1px solid #d4d4d4;
+  background: #0d0d0d;
+  color: #e8e8e8;
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 2px;
   text-align: left;
   font-family: 'Noto Sans KR', sans-serif;
@@ -1140,9 +1140,9 @@ ul { list-style: none; }
 
 .footer__biz-header {
   padding: 8px 20px;
-  background: #ececec;
-  color: #1a1a1a;
-  border-bottom: 1px solid #d4d4d4;
+  background: #1a1a1a;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
   position: relative;
 }
 .footer__biz-header::before {
@@ -1153,14 +1153,14 @@ ul { list-style: none; }
   transform: translateY(-50%);
   width: 3px;
   height: 11px;
-  background: #1a1a1a;
+  background: #ffffff;
 }
 .footer__biz-header__sub {
   display: inline-block;
   padding-left: 12px;
   font-size: 11px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #ffffff;
   letter-spacing: 0.2em;
   font-family: 'Noto Sans KR', 'Helvetica Neue', Arial, sans-serif;
 }
@@ -1174,28 +1174,29 @@ ul { list-style: none; }
 .footer__biz-table th,
 .footer__biz-table td {
   padding: 8px 18px;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   vertical-align: middle;
   text-align: left;
   line-height: 1.4;
-  border-right: 1px solid #ededed;
+  border-right: 1px solid rgba(255,255,255,0.08);
 }
 .footer__biz-table th {
   width: 17%;
-  background: #f6f6f6;
+  background: #161616;
   font-size: 11px;
   font-weight: 700;
-  color: #555;
+  color: #8a8a8a;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-family: 'Noto Sans KR', 'Helvetica Neue', Arial, sans-serif;
 }
 .footer__biz-table td {
   width: 33%;
-  color: #111;
+  color: #f0f0f0;
   font-weight: 600;
   letter-spacing: 0.005em;
   word-break: keep-all;
+  background: #0d0d0d;
 }
 .footer__biz-table td:last-child,
 .footer__biz-table th:last-child { border-right: none; }
@@ -1207,17 +1208,17 @@ ul { list-style: none; }
   letter-spacing: 0.22em;
   margin-left: 10px;
   padding-left: 10px;
-  border-left: 1px solid #d4d4d4;
+  border-left: 1px solid rgba(255,255,255,0.15);
 }
 
 .footer__business .footer__copy {
   margin: 0;
   padding: 11px 20px 12px;
-  background: #fafafa;
-  border-top: 1px solid #ededed;
+  background: #050505;
+  border-top: 1px solid rgba(255,255,255,0.08);
   font-size: 11px;
   font-weight: 500;
-  color: #888;
+  color: #666;
   letter-spacing: 0.06em;
   text-align: center;
   font-family: 'Noto Sans KR', 'Helvetica Neue', Arial, sans-serif;
@@ -1236,7 +1237,7 @@ ul { list-style: none; }
   .footer__biz-table tr {
     display: grid;
     grid-template-columns: 110px 1fr;
-    border-bottom: 1px solid #ededed;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
   .footer__biz-table tr:last-child { border-bottom: none; }
 
@@ -1246,12 +1247,12 @@ ul { list-style: none; }
     padding: 7px 14px;
     font-size: 12px;
     border-right: none;
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     line-height: 1.4;
   }
   .footer__biz-table tr > *:nth-last-child(-n+2) { border-bottom: none; }
   .footer__biz-table th { font-size: 10px; letter-spacing: 0.04em; }
-  .footer__biz-table td em { display: inline-block; margin: 0 0 0 6px; padding: 0 0 0 6px; border-left: 1px solid #d4d4d4; }
+  .footer__biz-table td em { display: inline-block; margin: 0 0 0 6px; padding: 0 0 0 6px; border-left: 1px solid rgba(255,255,255,0.15); }
 
   .footer__business .footer__copy { font-size: 10px; padding: 10px 16px 11px; line-height: 1.6; }
 }
