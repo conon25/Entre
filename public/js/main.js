@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
    스크롤 애니메이션
 ============================================== */
 const animEls = document.querySelectorAll(
-  '.pain__card, .timeline-item, .rotation__card, .pricing__card, .schedule__row, .faq__item'
+  '.pain__card, .timeline-item, .rotation__card, .pricing__card, .schedule__row, .faq__item, .refund__card'
 );
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
