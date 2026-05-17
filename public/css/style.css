@@ -1212,7 +1212,7 @@ ul { list-style: none; }
 
 .footer__business .footer__copy {
   margin: 0;
-  padding: 8px 20px;
+  padding: 11px 20px 12px;
   background: #fafafa;
   border-top: 1px solid #ededed;
   font-size: 11px;
@@ -1221,7 +1221,7 @@ ul { list-style: none; }
   letter-spacing: 0.06em;
   text-align: center;
   font-family: 'Noto Sans KR', 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 @media (max-width: 720px) {
@@ -1253,7 +1253,7 @@ ul { list-style: none; }
   .footer__biz-table th { font-size: 10px; letter-spacing: 0.04em; }
   .footer__biz-table td em { display: inline-block; margin: 0 0 0 6px; padding: 0 0 0 6px; border-left: 1px solid #d4d4d4; }
 
-  .footer__business .footer__copy { font-size: 10px; padding: 7px 16px; }
+  .footer__business .footer__copy { font-size: 10px; padding: 10px 16px 11px; line-height: 1.6; }
 }
 
 /* =============================================
