@@ -1139,15 +1139,28 @@ ul { list-style: none; }
 }
 
 .footer__biz-header {
-  padding: 12px 24px;
-  background: #111111;
-  color: #ffffff;
-  border-bottom: 1px solid #111111;
+  padding: 13px 24px;
+  background: #ececec;
+  color: #1a1a1a;
+  border-bottom: 1px solid #d4d4d4;
+  position: relative;
+}
+.footer__biz-header::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 14px;
+  background: #1a1a1a;
 }
 .footer__biz-header__sub {
+  display: inline-block;
+  padding-left: 14px;
   font-size: 12px;
   font-weight: 700;
-  color: #ffffff;
+  color: #1a1a1a;
   letter-spacing: 0.22em;
   font-family: 'Noto Sans KR', 'Helvetica Neue', Arial, sans-serif;
 }
